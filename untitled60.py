@@ -14,10 +14,9 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 # Load the model
-model = tf.keras.models.load_model('manoko6.h5')
+model = tf.keras.models.load_model('test.h5')
 
-# Load the StandardScaler fitted to your training data
-scaler = joblib.load('scaler2.pkl')  # Replace with the path to your scaler file
+
 
 st.title("Loan Approval Prediction")
 
@@ -48,7 +47,7 @@ if st.button("Predict"):
 
     # Use the loaded model to make predictions
     prediction = model.predict(input_data)
-    p = scaler.fit_transform(prediction.reshape(1,-1))
+    #p = scaler.fit_transform(prediction.reshape(1,-1))
 
     # Predicted class (0 or 1)
     loan_approval_class = np.argmax(prediction)
